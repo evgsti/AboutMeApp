@@ -1,5 +1,5 @@
 //
-//  UserViewController.swift
+//  WelcomeViewController.swift
 //  AboutMeApp
 //
 //  Created by Евгений on 27.07.2024.
@@ -7,25 +7,35 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet weak var welcomeTitle: UILabel!
+    @IBOutlet var welcomeTitle: UILabel!
     
+    // MARK: - Public Properties
     var userName: String!
     
+
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addGradient([UIColor.systemPink, UIColor.systemBlue], 
-                         locations: [0.0, 1.0],
-                         frame: view.frame)
+        view.setGradient(
+            [UIColor.systemPink, UIColor.systemCyan],
+            locations: [0.0, 1.0],
+            frame: view.frame
+        )
+        
+        welcomeTitle.text = "Welcome, \(userName.capitalized)!"
     }
 }
 
+// MARK: - Set gradient background
 extension UIView {
-    func addGradient(_ colors: [UIColor], 
-                     locations: [NSNumber],
-                     frame: CGRect = .zero) {
+    func setGradient(
+        _ colors: [UIColor],
+        locations: [NSNumber],
+        frame: CGRect = .zero
+    ) {
         
         let gradientLayer = CAGradientLayer()
         
