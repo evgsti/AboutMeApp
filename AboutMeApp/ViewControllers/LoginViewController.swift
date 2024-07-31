@@ -16,8 +16,15 @@ final class LoginViewController: UIViewController {
     // MARK: - Private Properties
     private let userName = "swift"
     private let password = "123"
+    private let user = User.getUser()
     
     // MARK: - View Life Cycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginTextField.text = user.login
+        passwordTextField.text = user.password
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
@@ -25,8 +32,8 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.userName = userName
+        let tabBar = segue.destination as? TabBarController
+        tabBar?.user = user
     }
         
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

@@ -14,6 +14,11 @@
 		BEB3B46A2C538BCF00AF4327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB3B4692C538BCF00AF4327 /* Assets.xcassets */; };
 		BEB3B46D2C538BCF00AF4327 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BEB3B46C2C538BCF00AF4327 /* Base */; };
 		BEB3B4752C5522B200AF4327 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B4742C5522B200AF4327 /* WelcomeViewController.swift */; };
+		BEB3B4772C58D26D00AF4327 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B4762C58D26D00AF4327 /* TabBarController.swift */; };
+		BEB3B4792C58D3BE00AF4327 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B4782C58D3BE00AF4327 /* User.swift */; };
+		BEB3B47F2C58F41200AF4327 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B47E2C58F41200AF4327 /* InfoViewController.swift */; };
+		BEB3B4812C59365800AF4327 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B4802C59365800AF4327 /* BioViewController.swift */; };
+		BEB3B4832C59421000AF4327 /* gradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3B4822C59421000AF4327 /* gradientBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		BEB3B46C2C538BCF00AF4327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEB3B46E2C538BCF00AF4327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB3B4742C5522B200AF4327 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		BEB3B4762C58D26D00AF4327 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BEB3B4782C58D3BE00AF4327 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BEB3B47E2C58F41200AF4327 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		BEB3B4802C59365800AF4327 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BioViewController.swift; path = AboutMeApp/ViewControllers/BioViewController.swift; sourceTree = SOURCE_ROOT; };
+		BEB3B4822C59421000AF4327 /* gradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = gradientBackground.swift; path = AboutMeApp/gradientBackground.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +68,53 @@
 		BEB3B45F2C538BCB00AF4327 /* AboutMeApp */ = {
 			isa = PBXGroup;
 			children = (
-				BEB3B4602C538BCB00AF4327 /* AppDelegate.swift */,
-				BEB3B4622C538BCB00AF4327 /* SceneDelegate.swift */,
-				BEB3B4642C538BCB00AF4327 /* LoginViewController.swift */,
-				BEB3B4742C5522B200AF4327 /* WelcomeViewController.swift */,
-				BEB3B4662C538BCB00AF4327 /* Main.storyboard */,
+				BEB3B47B2C58DC4500AF4327 /* ViewControllers */,
+				BEB3B47C2C58DC5600AF4327 /* Models */,
+				BEB3B47D2C58DC6A00AF4327 /* Views */,
+				BEB3B47A2C58DC2700AF4327 /* App */,
+				BEB3B4822C59421000AF4327 /* gradientBackground.swift */,
 				BEB3B4692C538BCF00AF4327 /* Assets.xcassets */,
-				BEB3B46B2C538BCF00AF4327 /* LaunchScreen.storyboard */,
-				BEB3B46E2C538BCF00AF4327 /* Info.plist */,
 			);
 			path = AboutMeApp;
+			sourceTree = "<group>";
+		};
+		BEB3B47A2C58DC2700AF4327 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BEB3B4602C538BCB00AF4327 /* AppDelegate.swift */,
+				BEB3B4622C538BCB00AF4327 /* SceneDelegate.swift */,
+				BEB3B46E2C538BCF00AF4327 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BEB3B47B2C58DC4500AF4327 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEB3B4642C538BCB00AF4327 /* LoginViewController.swift */,
+				BEB3B4742C5522B200AF4327 /* WelcomeViewController.swift */,
+				BEB3B4762C58D26D00AF4327 /* TabBarController.swift */,
+				BEB3B47E2C58F41200AF4327 /* InfoViewController.swift */,
+				BEB3B4802C59365800AF4327 /* BioViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BEB3B47C2C58DC5600AF4327 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEB3B4782C58D3BE00AF4327 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BEB3B47D2C58DC6A00AF4327 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEB3B4662C538BCB00AF4327 /* Main.storyboard */,
+				BEB3B46B2C538BCF00AF4327 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +190,12 @@
 			files = (
 				BEB3B4652C538BCB00AF4327 /* LoginViewController.swift in Sources */,
 				BEB3B4752C5522B200AF4327 /* WelcomeViewController.swift in Sources */,
+				BEB3B4792C58D3BE00AF4327 /* User.swift in Sources */,
+				BEB3B4812C59365800AF4327 /* BioViewController.swift in Sources */,
+				BEB3B4832C59421000AF4327 /* gradientBackground.swift in Sources */,
+				BEB3B47F2C58F41200AF4327 /* InfoViewController.swift in Sources */,
 				BEB3B4612C538BCB00AF4327 /* AppDelegate.swift in Sources */,
+				BEB3B4772C58D26D00AF4327 /* TabBarController.swift in Sources */,
 				BEB3B4632C538BCB00AF4327 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +350,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64F28UD7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AboutMeApp/Info.plist;
+				INFOPLIST_FILE = AboutMeApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -330,7 +382,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64F28UD7AZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AboutMeApp/Info.plist;
+				INFOPLIST_FILE = AboutMeApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

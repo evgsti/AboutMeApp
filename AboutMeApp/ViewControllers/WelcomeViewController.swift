@@ -10,12 +10,12 @@ import UIKit
 final class WelcomeViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var welcomeTitle: UILabel!
+    @IBOutlet var welcomeLoginTitle: UILabel!
+    @IBOutlet var welcomeNameTitle: UILabel!
     
     // MARK: - Public Properties
-    var userName: String!
+    var user: User!
     
-
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,8 @@ final class WelcomeViewController: UIViewController {
             frame: view.frame
         )
         
-        welcomeTitle.text = "Welcome, \(userName.capitalized)!"
+        welcomeLoginTitle.text = "Welcome, \(user.login)!"
+        welcomeNameTitle.text = "My name is \(user.person.fullName)!"
     }
 }
 
