@@ -7,14 +7,16 @@
 
 import UIKit
 
-class gradientBackground: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+extension UIView {
+    func setGradient() {
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.colors = [UIColor.systemPink.cgColor, UIColor.systemCyan.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.frame = bounds
+        
+        layer.insertSublayer(gradientLayer, at: 0)
     }
-    */
-
 }
