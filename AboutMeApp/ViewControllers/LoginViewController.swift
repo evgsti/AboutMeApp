@@ -14,15 +14,13 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     
     // MARK: - Private Properties
-    private let userName = "swift"
-    private let password = "123"
-    private let user = User.getUser()
+    private let userData = User.getUser()
     
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginTextField.text = user.login
-        passwordTextField.text = user.password
+        loginTextField.text = userData.login
+        passwordTextField.text = userData.password
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -33,11 +31,11 @@ final class LoginViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabBar = segue.destination as? TabBarController
-        tabBar?.user = user
+        tabBar?.tabBarUserData = userData
     }
         
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard loginTextField.text == userName, passwordTextField.text == password else {
+        guard loginTextField.text == userData.login, passwordTextField.text == userData.password else {
             showErrorAlert(
                 withTitle: "Invalid login or password",
                 andMessage: "Please, enter correct login and password"
@@ -49,11 +47,11 @@ final class LoginViewController: UIViewController {
     
     // MARK: - IB Actions
     @IBAction func forgotUserButtonAction(_ sender: UIButton) {
-        showInfoAlert(withTitle: "Login", andMessage: userName)
+        showInfoAlert(withTitle: "Login", andMessage: userData.login)
     }
     
     @IBAction func forgotPassButtonAction(_ sender: UIButton) {
-        showInfoAlert(withTitle: "Password", andMessage: password)
+        showInfoAlert(withTitle: "Password", andMessage: userData.password)
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
