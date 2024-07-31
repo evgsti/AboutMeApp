@@ -22,47 +22,35 @@ struct User {
 }
 
 struct Person {
+    let photo: String
     let name: String
     let surname: String
-    let photo: String
+    let age: Int
     let bio: String
-    let job: Company
+    let company: Company
     
-    var fullName: String {
-        "\(name) \(surname)"
-    }
+    var fullName: String { "\(name) \(surname)" }
     
     static func getPerson() -> Person {
         Person(
-            name: "Tim",
-            surname: "Cook",
-            photo: "TimCook",
-            bio: "Тим Кук родился в 1960 году в городе Мобил, штат Алабама, но детство провел в городке Робертсдейл. Мать будущего предпринимателя была фармацевтом, а отец — рабочим верфи. Кук мало рассказывал о своем детстве. Известна история о том, как он увидел расправу Ку-клукс-клана над негритянской семьей. Испугавшись, Тим крикнул, чтобы они остановились, но, приглядевшись, узнал в одном из участников действа местного священника и сбежал. Эта история, по словам предпринимателя, серьезно повлияла на его взгляды.",
-            job: Company.getCompany()
+            photo: "photo",
+            name: "Евгений",
+            surname: "Шипицын",
+            age: 29,
+            bio: "Родился 18.01.1995 в Новом Уренгое. В 2010 году закончил среднюю школу и поступил в техникум. В 2014 году закончил техникум и поступил в Казанский энергетический  институт, в декабре ушел в армию. После срочной службы в мае 2016 года устроился в ООО Газпром добыча Ямбург на должность слесаря КИПиА. В 2019 году закончил учёбу в институте. В марте 2024 года перешел на должность инженера-электроника.",
+            company: Company.getCompany()
         )
     }
 }
 
 struct Company {
     let title: String
-    let jobTitle: JobTitle
-    let department: Department
+    let profession: String
     
     static func getCompany() -> Company {
         Company(
-            title: "Apple",
-            jobTitle: .ceo,
-            department: .management
+            title: "ООО Газпром добыча Ямбург",
+            profession: "Инженер-электроник"
         )
     }
-}
-
-enum JobTitle: String {
-    case ceo = "CEO"
-    case cto = "CTO"
-}
-
-enum Department: String {
-    case management = "Management"
-    case marketing = "Marketing"
 }
