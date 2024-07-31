@@ -8,33 +8,41 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
-    var user: User!
     
+    // MARK: - Public Properties
+    var tabBarUserData: User!
+    
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appearance = UITabBarAppearance()
-        tabBar.standardAppearance = appearance
-        tabBar.scrollEdgeAppearance = appearance
         
-        tabBar.items?.last?.title = user.person.fullName
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBar.standardAppearance = tabBarAppearance
+        tabBar.scrollEdgeAppearance = tabBarAppearance
         
-        transferData()
+        tabBar.items?[0].image = UIImage(systemName: "person")
+        tabBar.items?[1].image = UIImage(systemName: "person")
+        
+        tabBar.items?[0].title = tabBarUserData.login
+        tabBar.items?[1].title = tabBarUserData.person.fullName
+        
+        loadUserData()
     }
     
-    private func transferData() {
-        guard let viewControllers else { return }
-        
-        viewControllers.forEach {
-            if let welcomeVC = $0 as? WelcomeViewController {
-                welcomeVC.user = user
+    // MARK: - Private Methods
+    private func loadUserData() {
+        if let viewControllers = viewControllers {
+            for viewController in viewControllers {
+                if let welcomeVC = viewController as? WelcomeViewController {
+                    welcomeVC.userDataWelcome = tabBarUserData
+                } else if let navigationVC = viewController as? UINavigationController {
+                    if let userInfoVC = navigationVC.topViewController as? InfoViewController {
+                        userInfoVC.userDataInfo = tabBarUserData
+                    }
+                }
             }
-//            } else if let navigationVC = $0 as? UINavigationController {
-//                let userInfoVC = navigationVC.topViewController
-//                guard let userInfoVC = userInfoVC as? UserInfoViewController else {
-//                    return
-//                }
-//                userInfoVC.user = user
-//            }
         }
     }
 }
+
