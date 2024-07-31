@@ -7,23 +7,29 @@
 
 import UIKit
 
-class BioViewController: UIViewController {
+final class BioViewController: UIViewController {
+    
+    // MARK: - IB Outlets
+    @IBOutlet private var bioText: UITextView!
+    
+    // MARK: - Public Properties
+    var userDataBio: User!
 
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.setGradient()
 
-        // Do any additional setup after loading the view.
+        let name = userDataBio.person.name
+        let nameInitial = firstLetter(of: name)
+        
+        title = "\(nameInitial). \(userDataBio.person.surname) Bio"
+        bioText.text = userDataBio.person.bio
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Private Methods
+    private func firstLetter(of word: String) -> String {
+        guard let firstChar = word.first else { return "" }
+        return String(firstChar)
     }
-    */
-
 }
